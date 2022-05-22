@@ -18,7 +18,7 @@ btnClose.innerText = 'X';
 
 modalElement.append(btnClose, descriptionElement);
 
-fetch('/book.json')
+fetch('./assets/book.json')
     .then((response) => response.json())
     .then((data) => {
         for (let i = 0; i < data.length; i++) {
