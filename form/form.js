@@ -65,7 +65,7 @@ const submitForm = (event) => {
 }
 
 document.querySelector(".close_form")
-  .addEventListener("click", () => window.location.href = 'index.html');
+  .addEventListener("click", () => window.location.href = '/index.html');
 
 
 form.addEventListener('submit', submitForm)
