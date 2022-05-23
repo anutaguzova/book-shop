@@ -14,7 +14,7 @@ body {
 }
 
 header {
-    
+
     height: 5rem;
     background-color: rgb(240, 240, 215);
 }
@@ -145,22 +145,111 @@ h1 {
 
 /* cart */
 
-.cart {
+.basket_wrapper {
     width: 30%;
     background-color: #e6f7e9;
     color: #9e866b;
     font-size: 3rem;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2.5rem;
 }
 
-.cart_title {}
-
-.cart_book {
+.basket_item {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-
+    flex-wrap: wrap;
+    margin: 2rem 1rem;
+    border-bottom: 2px solid grey;
 }
+
+.child-active {
+    align-self: flex-start;
+}
+
+
+.basket_item_part:first-child {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.quantity_input {
+    width: 6rem;
+    font-size: 2.3rem;
+    text-align: center;
+    margin-right: 3rem;
+}
+
+.basket_amount_remove {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.basket_item_title {
+    font-size: 1.3rem;
+    padding-bottom: 0.5rem;
+}
+
+.basket_item_author {
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+}
+
+
+
+.button_remove {
+    border: 2px solid #dd6365;
+    color: #fdfafa;
+    font-family: Georgia;
+    font-size: 1rem;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    background: #dd6365;
+    padding: 7px 9px;
+}
+
+.button_remove:hover {
+    cursor: pointer;
+    background: #f13034;
+    border: 2px solid #f13034;
+    ;
+}
+
+
+.basket_total {
+    margin-top: 2rem;
+    text-align: right;
+}
+
+.total_title {
+    margin-right: 2rem;
+}
+
+
+.buy_button {
+    border: 2px solid #8add97;
+    color: #fdfafa;
+    font-family: Georgia;
+    font-size: 2rem;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    background: #8add97;
+    padding: 7px 9px;
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.buy_button:hover {
+    cursor: pointer;
+    background: #479152;
+    border: 2px solid #479152;
+}
+
 
 
 
@@ -209,7 +298,7 @@ h1 {
     padding: 7rem 2rem;
 }
 
-   
+
 /* form */
 .form_delivery {
     padding: 20px;

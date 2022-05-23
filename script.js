@@ -1,20 +1,69 @@
-// book  catalog 
-let catalogElement = document.createElement('div');
+// book  page
+
+let header = document.createElement("header");
+let main = document.createElement("main");
+let footer = document.createElement("footer");
+let nameShop = document.createElement("h1");
+
+nameShop.innerText = "Book shop";
+header.appendChild(nameShop);
+
+let wrapperElement = document.createElement("div");
+wrapperElement.className = "wrapper";
+let basketWrapperElement = document.createElement("div");
+basketWrapperElement.className = "basket_wrapper";
+
+let catalogElement = document.createElement("div");
 catalogElement.className = "catalog";
 
-fetch('./assets/book.json')
+document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
     .then((response) => response.json())
     .then((data) => {
+
+        // basket
+        let basketElement = document.createElement("div");
+        let basketTitleElement = document.createElement("p");
+        let basketItemsElement = document.createElement("div");
+        let basketTotalElement = document.createElement("div");
+        let totalPriceElement = document.createElement("span");
+        let totalTitleElement = document.createElement("span");
+        let purchaseElement = document.createElement("a");
+        let purchaseButton = document.createElement("button");
+
+        basketElement.className = "basket";
+        basketTitleElement.className = "basket_title";
+        basketItemsElement.className = "basket_items";
+        basketTotalElement.className = "basket_total";
+        totalPriceElement.className = "total_price";
+        totalTitleElement.className = "total_title";
+        purchaseButton.className = "buy_button";
+
+        basketTitleElement.innerText = "Basket";
+        totalPriceElement.innerText = "0€";
+        totalTitleElement.innerText = "Total";
+        purchaseButton.innerText = "Purchase";
+
+        purchaseElement.href = "./form/form.html";
+        purchaseButton.setAttribute("type", "button");
+
+        purchaseElement.appendChild(purchaseButton);
+
+        basketElement.append(basketTitleElement, basketItemsElement, basketTotalElement, purchaseElement);
+        basketTotalElement.append(totalTitleElement, totalPriceElement);
+
+        basketWrapperElement.appendChild(basketElement)
+
+
         for (let i = 0; i < data.length; i++) {
             // book
-            let bookElement = document.createElement('div');
-            let bookWrapper = document.createElement('div');
-            let bookImage = document.createElement('img');
-            let bookTitle = document.createElement('p');
-            let bookAuthor = document.createElement('p');
-            let bookPrice = document.createElement('p');
-            let btnMore = document.createElement('a');
-            let btnBacket = document.createElement('button');
+            let bookElement = document.createElement("div");
+            let bookWrapper = document.createElement("div");
+            let bookImage = document.createElement("img");
+            let bookTitle = document.createElement("p");
+            let bookAuthor = document.createElement("p");
+            let bookPrice = document.createElement("p");
+            let btnMore = document.createElement("a");
+            let btnBasket = document.createElement("button");
 
             bookElement.className = "book";
             bookWrapper.className = "book_wrapper";
@@ -23,24 +72,24 @@ fetch('./assets/book.json')
             bookAuthor.className = "book_author";
             bookPrice.className = "book_price";
             btnMore.className = "button more__button";
-            btnBacket.className = "button backet__button";
+            btnBasket.className = "button basket__button";
 
             bookTitle.innerText = data[i].title;
             bookAuthor.innerText = data[i].author;
             bookPrice.innerText = data[i].price;
             btnMore.innerText = "Learn more";
-            btnBacket.innerText = "Add to backet";
+            btnBasket.innerText = "Add to basket";
             bookImage.src = data[i].imageLink;
 
             btnMore.setAttribute("type", "button");
-            btnBacket.setAttribute("type", "button");
+            btnBasket.setAttribute("type", "button");
             bookImage.setAttribute("alt", "book");
 
             // popup description
-            let popupElement = document.createElement('div');
-            let moreElement = document.createElement('div');
-            let closeElement = document.createElement('div');
-            let descriptionElement = document.createElement('p');
+            let popupElement = document.createElement("div");
+            let moreElement = document.createElement("div");
+            let closeElement = document.createElement("div");
+            let descriptionElement = document.createElement("p");
 
             popupElement.id = "popup_more";
             moreElement.id = "more_content";
@@ -52,7 +101,7 @@ fetch('./assets/book.json')
             popupElement.appendChild(moreElement);
 
             catalogElement.append(bookElement, popupElement);
-            bookElement.append(bookWrapper, bookTitle, bookAuthor, bookPrice, btnBacket);
+            bookElement.append(bookWrapper, bookTitle, bookAuthor, bookPrice, btnBasket);
             bookWrapper.append(bookImage, btnMore);
 
             btnMore.addEventListener("click", (e) =>
@@ -60,7 +109,104 @@ fetch('./assets/book.json')
                 descriptionElement.innerText = data[i].description
             );
             closeElement.addEventListener("click", () => popupElement.classList.remove("visible"));
-        }
-    });
 
-document.querySelector('.wrapper').appendChild(catalogElement);
+
+            // basket
+            let addToCartButtons = document.querySelectorAll(".basket__button")
+            for (let j = 0; j < addToCartButtons.length; j++) {
+                let button = addToCartButtons[i]
+                button.addEventListener("click", addClicked)
+            }
+
+            let quantityInputs = document.querySelectorAll(".quantity_input")
+            for (let i = 0; i < quantityInputs.length; i++) {
+                let input = quantityInputs[i]
+                input.addEventListener("change", changeQuantity)
+            }
+
+            let removeButtons = document.querySelectorAll(".button_remove")
+            for (let j = 0; j < removeButtons.length; j++) {
+                let button = removeButtons[j]
+                button.addEventListener("click", removeItem)
+            }
+
+
+            function addClicked() {
+                let title = document.querySelectorAll(".book_title")[i].innerText
+                let price = document.querySelectorAll(".book_price")[i].innerText
+                let author = document.querySelectorAll(".book_author")[i].innerText
+                let image = document.querySelectorAll(".book_image")[i].src
+                addItemBasket(title, author, price, image)
+                updateTotal()
+            }
+
+            function addItemBasket(title, author, price, image) {
+                let basket_item = document.createElement("div")
+                basket_item.classList.add("basket_item")
+                let itemsBasket = document.querySelector(".basket_items")
+                let basketItemTitles = document.querySelectorAll('.basket_item_title')
+                for (let j = 0; j < basketItemTitles.length; j++) {
+                    if (basketItemTitles[j].innerText == title) {
+                        alert('This book has been already added to the basket')
+                        return
+                    }
+                }
+
+                let itemContent = `
+                <div class="basket_item_part child-active">
+                  <div class="basket_item_title">${title}</div>
+                  <div class="basket_item_author">${author}</div>
+                  <div class="basket_amount_remove">
+                    <input class="quantity_input" type="number" value="1">
+                    <button class="button_remove" type="button"> REMOVE </button>  
+                  </div> 
+                </div>
+                <div class="basket_item_part">
+                  <span class="basket_item_price">${price}</span> 
+                  <span>€</span>
+                </div>
+                <div class="basket_item_part">
+                  <img class="basket_item_image" src="${image}" width="65" height="80">   
+                </div>
+                `
+                basket_item.innerHTML = itemContent
+                itemsBasket.appendChild(basket_item)
+                basket_item.querySelectorAll(".button_remove")[0].addEventListener("click", removeItem)
+                basket_item.querySelectorAll(".quantity_input")[0].addEventListener("change", changeQuantity)
+            }
+
+            function changeQuantity(event) {
+                if (isNaN(event.target.value) || event.target.value < 0) {
+                    event.target.value = 1
+                }
+
+                if (event.target.value == 0) {
+                    removeItem(event)
+                }
+                updateTotal()
+            }
+
+            function removeItem(event) {
+                let buttonClicked = event.target
+                buttonClicked.parentElement.parentElement.parentElement.remove()
+                updateTotal()
+            }
+
+            function updateTotal() {
+                let basket = document.querySelectorAll(".basket_item")
+                let total = 0
+                for (let j = 0; j < basket.length; j++) {
+                    let price = document.querySelectorAll(".basket_item_price")[j].innerText
+                    let quantity = document.querySelectorAll(".quantity_input")[j].value
+                    total = total + (price * quantity)
+                }
+                document.querySelector(".total_price").innerText = total + " €"
+            }
+        }
+    })
+)
+
+
+document.body.append(header, main, footer)
+main.append(wrapperElement, basketWrapperElement)
+wrapperElement.appendChild(catalogElement);
