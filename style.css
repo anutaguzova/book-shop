@@ -318,27 +318,27 @@ h1 {
 
 
 /* form */
+.delivery_title {
+    font-size: 4rem;
+}
 .form_delivery {
+    width: 70%;
+    margin: 2rem auto;
+    border: 2px solid grey;
     padding: 20px;
     font-size: 2rem;
-    margin: 20px;
     display: flex;
-    align-items: flex-start;
     flex-wrap: wrap;
-    flex-direction: column;
-    justify-content: center;
-    width: 400px;
-    border: 2px solid grey;
+    justify-content: space-between;
 }
 
 .form_title {
     text-align: left;
-    margin-left: 10px;
-    margin-bottom: 7px;
+    margin-bottom: 2rem;
 }
 
 .input {
-    padding: 15px 10px;
+    padding: 15px 20px;
     border: 2px solid #ced4da;
     border-radius: 10px;
     color: #42464a;
@@ -367,7 +367,8 @@ h1 {
 .message {
     opacity: 0;
     margin: 5px 0 8px 10px;
-    font-size: 14px;
+    font-size: 1.2rem;
+    text-align: left;
     color: red;
 }
 
@@ -407,10 +408,6 @@ h1 {
     border-color: red;
 }
 
-
-.gift {
-    margin-top: 10px;
-}
 
 
 
