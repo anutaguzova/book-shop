@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
 
         basketTitleElement.innerText = "Basket";
         totalPriceElement.innerText = "0€";
-        totalTitleElement.innerText = "Total";
+        totalTitleElement.innerText = "Total:";
         purchaseButton.innerText = "Purchase";
 
         purchaseElement.href = "./form/form.html";
@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
             bookTitle.className = "book_title";
             bookAuthor.className = "book_author";
             bookPrice.className = "book_price";
-            bookCurrency.className= "book_currency"
+            bookCurrency.className = "book_currency"
             btnMore.className = "button more__button";
             btnBasket.className = "button basket__button";
 
@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
 
 
             function addClicked() {
+                basketWrapperElement.classList.add("visible")
                 let title = document.querySelectorAll(".book_title")[i].innerText
                 let price = document.querySelectorAll(".book_price")[i].innerText
                 let author = document.querySelectorAll(".book_author")[i].innerText
@@ -202,6 +203,10 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
                     let price = document.querySelectorAll(".basket_item_price")[j].innerText
                     let quantity = document.querySelectorAll(".quantity_input")[j].value
                     total = total + (price * quantity)
+                }
+
+                if (total === 0) {
+                    basketWrapperElement.classList.remove("visible")
                 }
                 document.querySelector(".total_price").innerText = total + " €"
             }

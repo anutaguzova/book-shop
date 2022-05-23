@@ -36,8 +36,8 @@ footer {
 
 
 .wrapper {
-    width: 70%;
-    margin: 0 2rem;
+    width: 80%;
+    margin: 0 auto;
     overflow: hidden;
 }
 
@@ -58,7 +58,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 4fr));
     row-gap: 5rem;
-    column-gap: 2rem;
+    column-gap: 1.7rem;
 }
 
 .book {
@@ -90,7 +90,7 @@ h1 {
     border: 2px solid #8add97;
     color: #fdfafa;
     font-family: Georgia;
-    font-size: 2rem;
+    font-size: 1.5rem;
     line-height: 130%;
     letter-spacing: 0.06em;
     background: #8add97;
@@ -151,19 +151,26 @@ h1 {
 
 
 
-/* cart */
+/* basket */
 
 .basket_wrapper {
+    display: none;
+}
+
+.basket_wrapper.visible {
+    display: flex;
     width: 30%;
     background-color: #e6f7e9;
     color: #9e866b;
     font-size: 3rem;
-    text-align: center;
     font-size: 2.5rem;
+    margin-left: 1rem;
+
 }
 
 .basket_item {
     display: flex;
+    width: 100%;
     align-items: flex-end;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -207,8 +214,6 @@ h1 {
 
 }
 
-
-
 .button_remove {
     border: 2px solid #dd6365;
     color: #fdfafa;
@@ -235,6 +240,11 @@ h1 {
 
 .total_title {
     margin-right: 2rem;
+    font-weight: bold;
+}
+
+.total_price {
+    margin-right: 1rem;
 }
 
 
