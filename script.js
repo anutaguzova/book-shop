@@ -5,7 +5,7 @@ let main = document.createElement("main");
 let footer = document.createElement("footer");
 let nameShop = document.createElement("h1");
 
-nameShop.innerText = "Book shop";
+nameShop.innerText = "The Best Books to Become a Front-End Developer";
 header.appendChild(nameShop);
 
 let wrapperElement = document.createElement("div");
@@ -61,7 +61,8 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
             let bookImage = document.createElement("img");
             let bookTitle = document.createElement("p");
             let bookAuthor = document.createElement("p");
-            let bookPrice = document.createElement("p");
+            let bookPrice = document.createElement("span");
+            let bookCurrency = document.createElement("span");
             let btnMore = document.createElement("a");
             let btnBasket = document.createElement("button");
 
@@ -71,12 +72,14 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
             bookTitle.className = "book_title";
             bookAuthor.className = "book_author";
             bookPrice.className = "book_price";
+            bookCurrency.className= "book_currency"
             btnMore.className = "button more__button";
             btnBasket.className = "button basket__button";
 
             bookTitle.innerText = data[i].title;
             bookAuthor.innerText = data[i].author;
             bookPrice.innerText = data[i].price;
+            bookCurrency.innerText = "€";
             btnMore.innerText = "Learn more";
             btnBasket.innerText = "Add to basket";
             bookImage.src = data[i].imageLink;
@@ -101,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
             popupElement.appendChild(moreElement);
 
             catalogElement.append(bookElement, popupElement);
-            bookElement.append(bookWrapper, bookTitle, bookAuthor, bookPrice, btnBasket);
+            bookElement.append(bookWrapper, bookPrice, bookCurrency, bookAuthor, bookTitle, btnBasket);
             bookWrapper.append(bookImage, btnMore);
 
             btnMore.addEventListener("click", (e) =>

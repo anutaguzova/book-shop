@@ -15,67 +15,74 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <form class="form_delivery">
+    <header>
+        <h1>The Best Books to Become a Front-End Developer</h1>
+    </header>
+    <main>
+        <div class="wrapper">
+            <form class="form_delivery">
 
-            <label class="form_title" for="name">Name</label>
-            <input class="input" id="name" pattern="[A-Za-z]{4,}">
-            <span class="message">Please enter correct name</span>
-
-
-            <label class="form_title" for="surname">Surname</label>
-            <input class="input" id="surname" pattern="[A-Za-z]{5,}">
-            <span class="message">Please enter correct surname</span>
-
-
-            <label class="form_title" for="date">Delivery Date</label>
-            <input class="input" type="date" id="date" />
-            <span class="message">Please enter correct date</span>
+                <label class="form_title" for="name">Name</label>
+                <input class="input" id="name" pattern="[A-Za-z]{4,}">
+                <span class="message">Please enter correct name</span>
 
 
-            <label class="form_title" for="street">Street</label>
-            <input class="input" id="street" pattern="[A-Za-z0-9]{5,}">
-            <span class="message">Please enter correct street</span>
+                <label class="form_title" for="surname">Surname</label>
+                <input class="input" id="surname" pattern="[A-Za-z]{5,}">
+                <span class="message">Please enter correct surname</span>
 
 
-            <label class="form_title" for="house_number">House number</label>
-            <input class="input" id="house_number" pattern="^[1-9]+[0-9]*$">
-            <span class="message">Please enter correct house number.</span>
+                <label class="form_title" for="date">Delivery Date</label>
+                <input class="input" type="date" id="date" />
+                <span class="message">Please enter correct date</span>
 
-            <label class="form_title" for="flat_number">Flat number</label>
-            <input class="input" id="flat_number" pattern="^[1-9]+[0-9-?]*$">
-            <span class="message">Please enter correct flat number</span>
 
-            <div class="payment">
-                <input type="radio" id="cash" checked="checked" name="radio">
-                <label for="cash">Cash</label>
-                <input type="radio" id="card" name="radio">
-                <label for="card">Card</label>
-            </div>
+                <label class="form_title" for="street">Street</label>
+                <input class="input" id="street" pattern="[A-Za-z0-9]{5,}">
+                <span class="message">Please enter correct street</span>
 
-            <div class="gift form_title">
-                <p><b>2 Gifts for you (optional)</b></p>
-                <p>
-                    <input type="checkbox" name="option1" value="a1"> pack as a gift<Br>
-                    <input type="checkbox" name="option2" value="a2"> add postcard<Br>
-                    <input type="checkbox" name="option3" value="a3"> provide 2% discount to the next time<Br>
-                    <input type="checkbox" name="option4" value="a4"> branded pen<Br>
-                    <input type="checkbox" name="option5" value="a5"> branded pencil</p>
-            </div>
 
-            <button id="submit" type="submit" disabled>Complete</button>
-        </form>
-        <div id="popup_result">
-            <div id="log-content">
-                <div class="close_form">X</div>
-                <h3>Your order has been successfully created!!!!!</h3>
-                <p id="result1"></p>
-                <p id="result2"></p>
-                <p id="result3"></p>
+                <label class="form_title" for="house_number">House number</label>
+                <input class="input" id="house_number" pattern="^[1-9]+[0-9]*$">
+                <span class="message">Please enter correct house number.</span>
 
+                <label class="form_title" for="flat_number">Flat number</label>
+                <input class="input" id="flat_number" pattern="^[1-9]+[0-9-?]*$">
+                <span class="message">Please enter correct flat number</span>
+
+                <div class="payment">
+                    <input type="radio" id="cash" checked="checked" name="radio">
+                    <label for="cash">Cash</label>
+                    <input type="radio" id="card" name="radio">
+                    <label for="card">Card</label>
+                </div>
+
+                <div class="gift form_title">
+                    <p><b>2 Gifts for you (optional)</b></p>
+                    <p>
+                        <input type="checkbox" name="option1" value="a1"> pack as a gift<Br>
+                        <input type="checkbox" name="option2" value="a2"> add postcard<Br>
+                        <input type="checkbox" name="option3" value="a3"> provide 2% discount to the next time<Br>
+                        <input type="checkbox" name="option4" value="a4"> branded pen<Br>
+                        <input type="checkbox" name="option5" value="a5"> branded pencil</p>
+                </div>
+
+                <button id="submit" type="submit" disabled>Complete</button>
+            </form>
+            <div id="popup_result">
+                <div id="log-content">
+                    <div class="close_form">X</div>
+                    <h3>Your order has been successfully created!!!!!</h3>
+                    <p id="result1"></p>
+                    <p id="result2"></p>
+                    <p id="result3"></p>
+
+                </div>
             </div>
         </div>
-    </div>
+    </main>
+
+    <footer></footer>
 
 </body>
 
