@@ -19,7 +19,7 @@ body {
 
 header {
     min-height: 5vh;
-    background-color: rgb(240, 240, 215);
+   
 }
 
 main {
@@ -325,7 +325,7 @@ h1 a {
 
 /* form */
 .delivery_title {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 .form_delivery {
