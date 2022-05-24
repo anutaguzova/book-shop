@@ -43,10 +43,16 @@ footer {
 
 h1 {
     font-size: 3rem;
-    text-align: center;
+    text-align: left;
+    margin-left: 5rem;
     color: #495057;
     font-family: 'Source Sans Pro';
     padding-top: 1rem;
+}
+
+h1 a {
+    text-decoration: none;
+    color: #495057;
 }
 
 
@@ -342,9 +348,9 @@ h1 {
 .input {
     padding: 15px 20px;
     border: 2px solid #dfd;
+    background-color: #dfd;
     border-radius: 10px;
     color: #42464a;
-    background-color: #dfd;
 
 }
 
@@ -362,10 +368,22 @@ h1 {
     opacity: 0;
 }
 
-.input:-webkit-autofill {
-    border: 3px solid #dfd;
-    background-color: #dfd;
-  }
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+    box-shadow: inset 0 0 0px 9999px #dfd;
+    border: 2px solid #dfd;
+}
+
+.input:invalid:-webkit-autofill,
+.input:invalid:-webkit-autofill:hover,
+.input:invalid:-webkit-autofill:focus,
+.input:invalid:-webkit-autofill:active {
+    box-shadow: inset 0 0 0px 9999px #fdd;
+    border: 2px solid #fdd;
+}
+
 
 
 .message {

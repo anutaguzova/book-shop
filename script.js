@@ -5,7 +5,7 @@ let main = document.createElement("main");
 let footer = document.createElement("footer");
 let nameShop = document.createElement("h1");
 
-nameShop.innerText = "The Best Books to Become a Front-End Developer";
+nameShop.innerText = "Book Shop";
 header.appendChild(nameShop);
 
 let wrapperElement = document.createElement("div");
