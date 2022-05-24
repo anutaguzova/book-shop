@@ -19,7 +19,7 @@ body {
 
 header {
     min-height: 5vh;
-   
+    border-bottom: 2px solid grey;
 }
 
 main {
@@ -30,7 +30,7 @@ main {
 }
 
 footer {
-    background-color: rgb(240, 240, 215);
+    border-top: 2px solid grey;
     min-height: 5vh;
 }
 
