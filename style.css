@@ -321,6 +321,7 @@ h1 {
 .delivery_title {
     font-size: 4rem;
 }
+
 .form_delivery {
     width: 70%;
     margin: 2rem auto;
@@ -340,29 +341,31 @@ h1 {
 
 .input {
     padding: 15px 20px;
-    border: 2px solid #ced4da;
+    border: 2px solid #dfd;
     border-radius: 10px;
     color: #42464a;
-    background-color: #ffffff;
+    background-color: #dfd;
 
 }
 
 .input:invalid {
-    border-color: red;
-}
-
-.input:hover {
-    background-color: #ffffff;
+    border-color: #fdd;
+    background-color: #fdd;
 }
 
 .input:focus {
     outline: none;
-    background-color: #ffffff;
+   
 }
 
 .input:focus::placeholder {
     opacity: 0;
 }
+
+.input:-webkit-autofill {
+    border: 3px solid #dfd;
+    background-color: #dfd;
+  }
 
 
 .message {
@@ -415,13 +418,16 @@ h1 {
 
 
 /* gender */
+.payment_method {
+    z-index: 1;
+}
+
 .payment {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     font-size: 1.5rem;
-    z-index: 1;
 }
 
 .payment label {

@@ -25,7 +25,7 @@
                 <div>
                     <label class="form_title" for="name">Name*</label>
                     <div>
-                        <input class="input" id="name" pattern="[A-Za-z]{4,}">
+                        <input class="input" required id="name" pattern="[A-Za-z]{4,}">
                         <div class="message">Please enter correct name</div>
                     </div>
                 </div>
@@ -34,7 +34,7 @@
                 <div>
                     <label class="form_title" for="surname">Surname*</label>
                     <div> 
-                        <input class="input" id="surname" pattern="[A-Za-z]{5,}">
+                        <input class="input" required id="surname" pattern="[A-Za-z]{5,}">
                         <div class="message">Please enter correct surname</div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                 <div> 
                     <label class="form_title" for="date">Delivery Date*</label>
                     <div> 
-                        <input class="input" type="date" id="date" />
+                        <input class="input" required type="date" id="date" >
                         <div class="message">Please enter correct date</div></div>
 
                 </div>
@@ -51,7 +51,7 @@
                 <div> 
                     <label class="form_title" for="street">Street*</label>
                     <div> 
-                        <input class="input" id="street" pattern="[A-Za-z0-9]{5,}">
+                        <input class="input" required id="street" pattern="[A-Za-z0-9]{5,}" >
                         <div class="message">Please enter correct street</div></div>
 
                 </div>
@@ -59,19 +59,19 @@
                 <div>
                     <label class="form_title" for="house_number">House number*</label>
                     <div> 
-                        <input class="input" id="house_number" pattern="^[1-9]+[0-9]*$">
+                        <input class="input" required id="house_number" pattern="^[1-9]+[0-9]*$" >
                         <div class="message">Please enter correct house number</div></div>
                 </div>
 
                 <div> 
                     <label class="form_title" for="flat_number">Flat number*</label>
                     <div>
-                        <input class="input" id="flat_number" pattern="^[1-9]+[0-9-?]*$">
+                        <input class="input" required id="flat_number" pattern="^[1-9]+[0-9-?]*$" >
                         <div class="message">Please enter correct flat number</div></div>
                 </div>
 
 
-                <div>
+                <div class="payment_method">
                     <div class="form_title">Payment method*</div>
                     <div class="payment"><input type="radio" id="cash" checked="checked" name="radio">
                     <label for="cash">Cash</label>

@@ -67,6 +67,7 @@ inputs.forEach(input => {
     input.addEventListener('input', () => {
 
         input.required = true
+
         if (!input.validity.valid) {
             input.nextElementSibling.style.opacity = 1
         } else {
