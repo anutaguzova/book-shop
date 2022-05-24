@@ -335,6 +335,7 @@ h1 {
 .form_title {
     text-align: left;
     margin-bottom: 2rem;
+    font-size: 2rem;
 }
 
 .input {
@@ -401,6 +402,7 @@ h1 {
 #submit:hover {
     background-color: #479152;
     color: rgb(240, 235, 235);
+    cursor: pointer;
 }
 
 
