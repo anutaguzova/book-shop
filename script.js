@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
         basketTotalElement.className = "basket_total";
         totalPriceElement.className = "total_price";
         totalTitleElement.className = "total_title";
+        purchaseElement.className = "link_form"
         purchaseButton.className = "buy_button";
 
         basketTitleElement.innerText = "Basket";
@@ -51,7 +52,35 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
         basketElement.append(basketTitleElement, basketItemsElement, basketTotalElement, purchaseElement);
         basketTotalElement.append(totalTitleElement, totalPriceElement);
 
+
         basketWrapperElement.appendChild(basketElement)
+
+        // drag drop
+        catalogElement.addEventListener("dragstart", function (event) {
+            event.dataTransfer.setData('text', event.target.id)
+
+        })
+
+        basketElement.addEventListener("dragover", function (event) {
+            event.preventDefault();
+        }),
+
+        basketElement.addEventListener("drop", function (event) {
+            let id = event.dataTransfer.getData('text');
+            addDropped(id);
+            event.dataTransfer.clearData();
+            })
+
+        function addDropped(id) {
+            purchaseButton.classList.add("visible")
+            let title = document.querySelectorAll(".book_title")[id - 1].innerText
+            let price = document.querySelectorAll(".book_price")[id - 1].innerText
+            let author = document.querySelectorAll(".book_author")[id - 1].innerText
+            let image = document.querySelectorAll(".book_image")[id - 1].src
+            addItemBasket(title, author, price, image)
+            updateTotal()
+        }
+
 
 
         for (let i = 0; i < data.length; i++) {
@@ -83,6 +112,9 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
             btnMore.innerText = "Learn more";
             btnBasket.innerText = "Add to basket";
             bookImage.src = data[i].imageLink;
+
+            bookElement.setAttribute("draggable", "true");
+            bookElement.id = data[i].id;
 
             btnMore.setAttribute("type", "button");
             btnBasket.setAttribute("type", "button");
@@ -122,8 +154,8 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
             }
 
             let quantityInputs = document.querySelectorAll(".quantity_input")
-            for (let i = 0; i < quantityInputs.length; i++) {
-                let input = quantityInputs[i]
+            for (let j = 0; j < quantityInputs.length; i++) {
+                let input = quantityInputs[j]
                 input.addEventListener("change", changeQuantity)
             }
 
@@ -133,9 +165,8 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
                 button.addEventListener("click", removeItem)
             }
 
-
             function addClicked() {
-                basketWrapperElement.classList.add("visible")
+                purchaseButton.classList.add("visible")
                 let title = document.querySelectorAll(".book_title")[i].innerText
                 let price = document.querySelectorAll(".book_price")[i].innerText
                 let author = document.querySelectorAll(".book_author")[i].innerText
@@ -149,12 +180,12 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
                 basket_item.classList.add("basket_item")
                 let itemsBasket = document.querySelector(".basket_items")
                 let basketItemTitles = document.querySelectorAll('.basket_item_title')
-                for (let j = 0; j < basketItemTitles.length; j++) {
-                    if (basketItemTitles[j].innerText == title) {
-                        alert('This book has been already added to the basket')
-                        return
-                    }
-                }
+                // for (let j = 0; j < basketItemTitles.length; j++) {
+                //     if (basketItemTitles[j].innerText == title) {
+                //         alert('This book has been already added to the basket')
+                //         return
+                //     }
+                // }
 
                 let itemContent = `
                 <div class="basket_item_part child-active">
@@ -206,7 +237,7 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
                 }
 
                 if (total === 0) {
-                    basketWrapperElement.classList.remove("visible")
+                    purchaseButton.classList.remove("visible")
                 }
                 document.querySelector(".total_price").innerText = total + " €"
             }

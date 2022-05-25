@@ -74,6 +74,14 @@ h1 a {
 
 }
 
+.book:hover {
+   cursor: pointer;
+   transform: scale(1.03);
+   box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+
+
 .book_wrapper {
     position: relative;
 }
@@ -159,11 +167,9 @@ h1 a {
 
 /* basket */
 
-.basket_wrapper {
-    display: none;
-}
 
-.basket_wrapper.visible {
+
+.basket_wrapper {
     display: flex;
     width: 30%;
     background-color: #e6f7e9;
@@ -172,6 +178,14 @@ h1 a {
     font-size: 2.5rem;
     margin-left: 1rem;
 
+}
+
+.basket {
+    width: 100%;
+}
+
+.basket_title {
+    text-align: center;
 }
 
 .basket_item {
@@ -253,8 +267,16 @@ h1 a {
     margin-right: 1rem;
 }
 
+.link_form {
+    text-decoration: none;
+}
 
 .buy_button {
+    display: none;
+}
+
+.buy_button.visible {
+    display: block;
     border: 2px solid #8add97;
     color: #fdfafa;
     font-family: Georgia;
@@ -264,7 +286,7 @@ h1 a {
     background: #8add97;
     padding: 7px 9px;
     text-align: center;
-    margin-top: 2rem;
+    margin: 2rem 1rem;
 }
 
 .buy_button:hover {
