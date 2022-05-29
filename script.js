@@ -1,10 +1,11 @@
 // book  page
+const page = document.createDocumentFragment();
 
 let header = document.createElement("header");
 let main = document.createElement("main");
 let footer = document.createElement("footer");
-let nameShop = document.createElement("h1");
 
+let nameShop = document.createElement("h1");
 nameShop.innerText = "Book Shop";
 header.appendChild(nameShop);
 
@@ -246,6 +247,11 @@ document.addEventListener("DOMContentLoaded", () => fetch("./assets/book.json")
 )
 
 
-document.body.append(header, main, footer)
 main.append(wrapperElement, basketWrapperElement)
 wrapperElement.appendChild(catalogElement);
+
+
+page.appendChild(header);
+page.appendChild(main);
+page.appendChild(footer);
+document.body.appendChild(page);
